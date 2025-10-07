@@ -1,0 +1,8 @@
+.vscode/
+minilibx-linux/
+/assets/player/
+/assets/exit/
+/assets/player+ground/
+/assets/map
+/assets/spawn/
+*.o
