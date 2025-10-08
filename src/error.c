@@ -25,7 +25,6 @@ void	ft_puterr(char *s)
 		write(2, &s[i], 1);
 		i++;
 	}
-	exit(1);
 }
 
 void	ft_puterr_non_exit(char *s)

@@ -17,7 +17,7 @@
 #include <stddef.h>
 #include <fcntl.h>
 
-#include "../minilibx-linux/mlx.h"
+#include "../minilibx-linux/minilibx-linux/mlx.h"
 #include "../libft/libft.h"
 #include "a_fun.h"
 
@@ -58,8 +58,8 @@ typedef struct s_player {
 typedef struct s_game {
     void    *win;
     void    *mlx;
-    t_player    *player;
-    t_map       *map;
+    t_player    player;
+    t_map       map;
 }   t_game;
 
 #endif

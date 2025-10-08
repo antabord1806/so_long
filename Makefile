@@ -3,13 +3,13 @@ NAME = so_long
 
 # Compilador e flags
 CC = gcc
-CFLAGS = -Wall -Wextra -Werror -g
+CFLAGS = -Wall -Wextra -Werror
 
 # Diretórios
 SRC_DIR = src
 INC_DIR = src
 LIBFT_DIR = libft
-MLX_DIR = minilibx-linux
+MLX_DIR = minilibx-linux/minilibx-linux
 
 # Includes
 INCLUDES = -I$(INC_DIR) -I$(LIBFT_DIR) -I$(MLX_DIR)

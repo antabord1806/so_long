@@ -17,22 +17,18 @@
 #include "../a_structs.h"
 
 
-t_map	*create_map(char **line, int height)
+void	create_map(t_map *map, char **line, int height)
 {
-	t_map *map;
-
-	map = init_grid();
 	map->grid = line;
- 	map->width = ft_strlen(line[0]);
+	map->width = ft_strlen(line[0]);
 	map->height = height;
 	if (!check_counts(line) || !top_bottom_walls(line[0], line[map->height - 1]) || !is_square(line, height))
 	{
-		free_map(NULL, map);
-		return ( NULL);
-	}	
+		ft_free_all(line);
+		return ;
+	}
 	find_p_x(map);
 	find_p_y(map);
-	return (map);
 }
 
 int	coin_count(t_map *map)

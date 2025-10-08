@@ -14,27 +14,11 @@
 #include "a_fun.h"
 
 
-t_map	*init_grid(void)
+void	init_grid(t_map *map)
 {
-	t_map *map = ft_calloc(1, sizeof(t_map));
+	ft_calloc(0, sizeof(t_map));
 	if (!map)
-		return (NULL);
-	map->grid = NULL;
-	map->height = 0;
-	map->width = 0;
-	map->player_x = 0;
-	map->player_y = 0;
-	map->coins_map = 0;
-	map->coins_found = 0;
-	map->player_on_coin = NULL;
-	map->player_on_exit = NULL;
-	map->void_coin = NULL;
-	map->player = NULL;
-	map->wall = NULL;
-	map->coins = NULL;
-	map->ground = NULL;
-	map->exit = NULL;
-	return (map);
+		return ;
 }
 
 t_player    *player_init(void)
@@ -60,7 +44,7 @@ t_player    *player_init(void)
 	return (player);
 }
 
-t_game	*game_init(t_map *map, t_player *player)
+/* t_game	*game_init(t_map *map, t_player *player)
 {
 	t_game *game = ft_calloc(1, sizeof(t_game));
 	if (!game)
@@ -70,7 +54,7 @@ t_game	*game_init(t_map *map, t_player *player)
 	game->player = player;
 	game->map = map;
 	return (game);
-}
+} */
 
 void	find_p_x(t_map *map)
 {

@@ -15,25 +15,26 @@
 
 int	main(int argc, char **argv)
 {
-	t_map	*map;
- 	t_game	*game;
-	t_player	*player;
-	void	*mlx;
-	void	*win;
- 
-	map = main_parser(argc, argv);
-	validate_map_size(map);
-	player = player_init();;
-	game = game_init(map, player);
-	mlx = mlx_init();
-	win = mlx_new_window(mlx, map->width * TILE_SIZE, map->height * TILE_SIZE, "so_long");
-	game->win = win;
-	game->mlx = mlx;
-	key_hooks(win, game);
-	load_images(mlx, map, player);
-	map_render(game);
-	mlx_loop_hook(mlx, game_loop, game);
-	mlx_loop(mlx);
+ 	t_game	game;
+
+	ft_memset(&game, 0, sizeof(t_game));
+	main_parser(&game.map, argc, argv);
+	validate_map_size(&game.map);
+	game.mlx = mlx_init();
+	game.win = mlx_new_window(game.mlx, game.map.width * TILE_SIZE, game.map.height * TILE_SIZE, "so_long");
+	if (!game.win || !game.mlx)
+	{
+		nuke_all(&game);
+		ft_puterr("Error: mlx init failed\n");
+		return (1);
+	}
+	key_hooks(game.win, &game);
+	load_images(game.mlx, &game.map, &game.player);
+	map_render(&game);
+	mlx_loop_hook(game.mlx, game_loop, &game);
+	mlx_loop(game.mlx);
+	nuke_all(&game);
+	return (0);
 }
 
 void	load_images(void *mlx, t_map *map, t_player *player)

@@ -26,6 +26,46 @@ void	ft_free_all(char **arr_aloc)
 	free(arr_aloc);
 }
 
+void	nuke_all(t_game *game)
+{
+	int	i;
+
+	i = 0;
+	if (!game)
+		return ;
+	while (i < 8)
+	{
+		if (game->player.player[i])
+			mlx_destroy_image(game->mlx, game->player.player[i]);
+		if (game->player.player_on_coin[i])
+			mlx_destroy_image(game->mlx, game->player.player_on_coin[i]);
+		if (game->player.player_on_exit[i])
+			mlx_destroy_image(game->mlx, game->player.player_on_exit[i]);
+		if (game->player.player_on_void[i])
+			mlx_destroy_image(game->mlx, game->player.player_on_void[i]);
+		i++;
+	}
+	if (game->map.wall)
+		mlx_destroy_image(game->mlx, game->map.wall);
+	if (game->map.ground)
+		mlx_destroy_image(game->mlx, game->map.ground);
+	if (game->map.coins)
+		mlx_destroy_image(game->mlx, game->map.coins);
+	if (game->map.exit)
+		mlx_destroy_image(game->mlx, game->map.exit);
+	if (game->map.void_coin)
+		mlx_destroy_image(game->mlx, game->map.void_coin);
+	if (game->map.grid)
+		ft_free_all(game->map.grid);
+	if (game->win)
+		mlx_destroy_window(game->mlx, game->win);
+	if (game->mlx)
+	{
+		mlx_destroy_display(game->mlx);
+		free(game->mlx);
+	}
+}
+
 void	free_grid(char **grid)
 {
 	int	i;
@@ -40,75 +80,4 @@ void	free_grid(char **grid)
 		i++;
 	}
 	free(grid);
-}
-
-
-void	free_map(void *mlx, t_map *map)
-{
-	if (!map)
-		return;
-	if (mlx)
-	{
-		if (map->wall)
-			mlx_destroy_image(mlx, map->wall);
-		if (map->ground)
-			mlx_destroy_image(mlx, map->ground);
-		if (map->coins)
-			mlx_destroy_image(mlx, map->coins);
-		if (map->exit)
-			mlx_destroy_image(mlx, map->exit);
-		if (map->void_coin)
-			mlx_destroy_image(mlx, map->void_coin);
-	}
-	if (map->grid)
-		ft_free_all(map->grid);
-	free(map);
-}
-
-
-void free_player(void *mlx, t_player *player)
-{
-	int i;
-
-	if (!player)
-		return;
-	i = 0;
-	while (i < 8)
-	{
-		if (mlx && player->player[i])
-			mlx_destroy_image(mlx, player->player[i]);
-		if (mlx && player->player_on_coin[i])
-			mlx_destroy_image(mlx, player->player_on_coin[i]);
-		if (mlx && player->player_on_exit[i])
-			mlx_destroy_image(mlx, player->player_on_exit[i]);
-		if (mlx && player->player_on_void[i])
-			mlx_destroy_image(mlx, player->player_on_void[i]);
-		i++;
-	}
-	free(player);
-}
-
-void	free_game(t_game *game)
-{
-	if (!game)
-		return;
-	
-	// Free all images first
-	if (game->player)
-		free_player(game->mlx, game->player);
-	if (game->map)
-		free_map(game->mlx, game->map);
-	
-	// Destroy window
-	if (game->win && game->mlx)
-		mlx_destroy_window(game->mlx, game->win);
-
-#ifdef __linux__
-	if (game->mlx)
-		mlx_destroy_display(game->mlx);
-#endif
-
-	if (game->mlx)
-		free(game->mlx);
-	free(game);
 }

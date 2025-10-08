@@ -2,7 +2,7 @@
 #define A_FUN_H
 
 #include "a_structs.h"
-#include "../minilibx-linux/mlx.h"
+#include "../minilibx-linux/minilibx-linux/mlx.h"
 #include "../libft/libft.h"
 
 #ifndef TILE_SIZE
@@ -27,13 +27,11 @@ int	main(int argc, char **argv);
 void	ft_puterr(char *s);
 void	ft_puterr_non_exit(char *s);
 void	ft_free_all(char **arr_aloc);
-void    free_map(void *mlx, t_map *map);
-void    free_player(void *mlx, t_player *player);
-void    free_game(t_game *game);
+void	nuke_all(t_game *game);
 
 //map
     //parsing
-    t_map	*main_parser(int argc, char **argv);
+    void	main_parser(t_map *map, int argc, char **argv);
     char    *read_block(int fd);
     char    *line_reader(int fd);
     char    **line_check(char *str);
@@ -55,8 +53,8 @@ void    free_game(t_game *game);
     void	validate_map_size(t_map *map);
     
     //to_struct
-    t_map   *create_map(char **lines, int n_lines);
-    t_map	*init_grid(void);
+    void   create_map(t_map *map, char **lines, int n_lines);
+    void	init_grid(t_map *map);
     t_game  *game_init(t_map *map, t_player *player);
     t_player    *player_init();
     void    find_p_x(t_map *map);

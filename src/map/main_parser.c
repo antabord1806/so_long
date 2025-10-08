@@ -17,40 +17,37 @@
 #include "../a_structs.h"
 
 
-t_map	*main_parser(int argc, char **argv)
+void	main_parser(t_map *map, int argc, char **argv)
 {
 	int fd;
 	char *line;
-	char **grid;
-	t_map *map;
 
 	if (argc != 2)
-		return (ft_puterr("Error: too many arguments!\n"), NULL);
+		ft_puterr("Error: too many arguments!\n");
 	if (ft_strlen(argv[1]) < 4 || ft_strncmp(argv[1] + ft_strlen(argv[1]) - 4,".ber", 4))
-		return (ft_puterr("Error: Invalid file extension\n"), NULL);
+		ft_puterr("Error: Invalid file extension\n");
 	fd = open(argv[1], O_RDONLY);
 	if (fd < 0)
-		return (ft_puterr("Error: Can't open file\n"), NULL);
+		ft_puterr("Error: Can't open file\n");
 	line = line_reader(fd);
 	close(fd);
 	if (!line)
-		return (NULL);
-	grid = line_check(line);
-	fd = n_lines(grid);
-	map = create_map(grid, fd);
+		return ;
+	map->grid = line_check(line);
+	fd = n_lines(map->grid);
+	create_map(map, map->grid, fd);
 	if (!map)
 	{
 		free(line);
-		return (NULL);
+		return ;
 	}
 	flood_fill_st(map, map->player_x, map->player_y, map->height);
 	if (!coin_count(map))
 	{
 		free(line);
-		return (NULL);
+		return ;
 	}
 	free(line);
-	return (map);
 }
 
 int	n_lines(char **grid)
