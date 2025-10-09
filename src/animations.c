@@ -1,19 +1,20 @@
 #include "a_fun.h"
 #include "a_structs.h"
 
+
 int	game_loop(t_game *game)
 {
 	player_animation(game);
 	void_animation(game);
 	exit_animation(game);
 	map_render(game);
+	show_counter(game->mlx, game->win, game->player.moves);
 	return (0);
 }
 
-
 int	player_animation(t_game *game)
 {
-	static int	counter = 0;
+	static int counter = 0;
 
 	counter++;
 	if (counter >= 100)
@@ -29,7 +30,7 @@ int	player_animation(t_game *game)
 
 int	void_animation(t_game *game)
 {
-	static int	counter = 0;
+	static int counter = 0;
 
 	counter++;
 	if (counter >= 100)
@@ -45,7 +46,7 @@ int	void_animation(t_game *game)
 
 int	exit_animation(t_game *game)
 {
-	static int	counter = 0;
+	static int counter = 0;
 
 	counter++;
 	if (counter >= 100)
@@ -58,4 +59,3 @@ int	exit_animation(t_game *game)
 	}
 	return (0);
 }
-

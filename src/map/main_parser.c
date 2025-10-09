@@ -2,11 +2,11 @@
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   main_parser.c                                      :+:      :+:    :+:   */
-/*                                                    +:+ +:+        
+/*                                                    +:+ +:+
 	+:+     */
-/*   By: antabord <antabord@student.42.fr>          #+#  +:+      
+/*   By: antabord <antabord@student.42.fr>          #+#  +:+
 	+#+        */
-/*                                                +#+#+#+#+#+  
+/*                                                +#+#+#+#+#+
 	+#+           */
 /*   Created: 2025-09-27 15:26:37 by antabord          #+#    #+#             */
 /*   Updated: 2025-09-27 15:26:37 by antabord         ###   ########.fr       */
@@ -24,7 +24,8 @@ void	main_parser(t_map *map, int argc, char **argv)
 
 	if (argc != 2)
 		ft_puterr("Error: too many arguments!\n");
-	if (ft_strlen(argv[1]) < 4 || ft_strncmp(argv[1] + ft_strlen(argv[1]) - 4,".ber", 4))
+	if (ft_strlen(argv[1]) < 4 || ft_strncmp(argv[1] + ft_strlen(argv[1]) - 4,
+			".ber", 4))
 		ft_puterr("Error: Invalid file extension\n");
 	fd = open(argv[1], O_RDONLY);
 	if (fd < 0)
@@ -41,6 +42,10 @@ void	main_parser(t_map *map, int argc, char **argv)
 		free(line);
 		return ;
 	}
+}
+
+void	second_main_parser(t_map *map, char *line)
+{
 	flood_fill_st(map, map->player_x, map->player_y, map->height);
 	if (!coin_count(map))
 	{
@@ -59,14 +64,3 @@ int	n_lines(char **grid)
 		i++;
 	return (i);
 }
-
-/* void	print_map(char **grid, int height)
-{
-	int i = 0;
-
-	while (i < height)
-	{
-		printf("%s\n", grid[i]);
-		i++;
-	}
-} */

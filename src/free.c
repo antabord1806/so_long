@@ -5,17 +5,19 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: antabord <antabord@student.42.fr>          #+#  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025-09-27 15:26:11 by antabord          #+#    #+#             */
-/*   Updated: 2025-09-27 15:26:11 by antabord         ###   ########.fr       */
+/*   Created: 2025-10-09 15:00:48 by antabord          #+#    #+#             */
+/*   Updated: 2025-10-09 15:00:48 by antabord         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "a_structs.h"
+
 #include "a_fun.h"
+#include "a_structs.h"
+
 
 void	ft_free_all(char **arr_aloc)
 {
-	int	i;
+	int i;
 
 	i = 0;
 	while (arr_aloc[i])
@@ -25,10 +27,9 @@ void	ft_free_all(char **arr_aloc)
 	}
 	free(arr_aloc);
 }
-
-void	nuke_all(t_game *game)
+void	free_player(t_game *game)
 {
-	int	i;
+	int i;
 
 	i = 0;
 	if (!game)
@@ -45,6 +46,13 @@ void	nuke_all(t_game *game)
 			mlx_destroy_image(game->mlx, game->player.player_on_void[i]);
 		i++;
 	}
+}
+
+void	nuke_all(t_game *game)
+{
+	if (!game)
+		return ;
+	free_player(game);
 	if (game->map.wall)
 		mlx_destroy_image(game->mlx, game->map.wall);
 	if (game->map.ground)
@@ -64,20 +72,5 @@ void	nuke_all(t_game *game)
 		mlx_destroy_display(game->mlx);
 		free(game->mlx);
 	}
-}
-
-void	free_grid(char **grid)
-{
-	int	i;
-
-	if (!grid)
-		return ; 
-
-	i = 0;
-	while (grid[i])
-	{
-		free(grid[i]);
-		i++;
-	}
-	free(grid);
+	exit(0);
 }

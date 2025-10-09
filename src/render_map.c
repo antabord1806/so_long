@@ -17,7 +17,6 @@ void	map_render(t_game *game)
 {
 	int x;
 	int y;
-	void *img_draw;
 
 	x = 0;
 	y = 0;
@@ -25,32 +24,41 @@ void	map_render(t_game *game)
 	{
 		while (x < game->map.width)
 		{
-			if (game->map.grid[y][x] == '0')
-				img_draw = game->map.ground;
-			else if (game->map.grid[y][x] == '1')
-				img_draw = game->map.wall;
-			else if (game->map.grid[y][x] == 'P')
-				img_draw = player_drawing(game, y, x);
-			else if (game->map.grid[y][x] == 'C')
-				img_draw = game->map.coins;
-			else if (game->map.grid[y][x] == 'E')
-				img_draw = game->map.exit;
-			else if (game->map.grid[y][x] == 'A')
-				img_draw = void_drawing(game, y, x);
-			else if (game->map.grid[y][x] == 'D')
-				img_draw = exit_drawing(game, y, x);
-			else if (game->map.grid[y][x] == 'S')
-				img_draw = game->player.player_on_void[0];
-			else if (game->map.grid[y][x] == 'V')
-				img_draw = game->map.void_coin;
-			else
-				img_draw = game->map.wall;
-			mlx_put_image_to_window(game->mlx, game->win, img_draw, TILE_SIZE * x, TILE_SIZE * y);
+			map_rendering(game, y, x);
 			x++;
 		}
 		y++;
 		x = 0;
 	}
+}
+
+void		map_rendering(t_game *game, int y, int x)
+{
+	void *img_draw;
+
+	if (game->map.grid[y][x] == '0')
+		img_draw = game->map.ground;
+	else if (game->map.grid[y][x] == '1')
+		img_draw = game->map.wall;
+	else if (game->map.grid[y][x] == 'P')
+		img_draw = player_drawing(game, y, x);
+	else if (game->map.grid[y][x] == 'C')
+		img_draw = game->map.coins;
+	else if (game->map.grid[y][x] == 'E')
+		img_draw = game->map.exit;
+	else if (game->map.grid[y][x] == 'A')
+		img_draw = void_drawing(game, y, x);
+	else if (game->map.grid[y][x] == 'D')
+		img_draw = exit_drawing(game, y, x);
+	else if (game->map.grid[y][x] == 'S')
+		img_draw = game->player.player_on_void[0];
+	else if (game->map.grid[y][x] == 'V')
+		img_draw = game->map.void_coin;
+	else if (game->map.grid[y][x] == 'M')
+		return ;
+	else
+		img_draw = game->map.wall;
+	mlx_put_image_to_window(game->mlx, game->win, img_draw, TILE_SIZE * x, TILE_SIZE * y);
 }
 
 void	*player_drawing(t_game *game, int y, int x)

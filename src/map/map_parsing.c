@@ -2,9 +2,12 @@
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   map_parsing.c                                      :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: antabord <antabord@student.42.fr>          #+#  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
+/*                                                    +:+ +:+        
+	+:+     */
+/*   By: antabord <antabord@student.42.fr>          #+#  +:+      
+	+#+        */
+/*                                                +#+#+#+#+#+  
+	+#+           */
 /*   Created: 2025-09-27 15:26:53 by antabord          #+#    #+#             */
 /*   Updated: 2025-09-27 15:26:53 by antabord         ###   ########.fr       */
 /*                                                                            */
@@ -17,7 +20,7 @@
 int	char_finder(char c)
 {
 	if (c == '0' || c == '1' || c == 'C' || c == 'E' || c == 'P' || c == '\n'
-		|| c == '\r')
+		|| c == '\r' || c == 'M')
 		return (1);
 	return (0);
 }

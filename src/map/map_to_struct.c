@@ -2,16 +2,14 @@
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   map_to_struct.c                                    :+:      :+:    :+:   */
-/*                                                    +:+ +:+
-	+:+     */
-/*   By: antabord <antabord@student.42.fr>          #+#  +:+
-	+#+        */
-/*                                                +#+#+#+#+#+
-	+#+           */
-/*   Created: 2025-09-27 15:26:58 by antabord          #+#    #+#             */
-/*   Updated: 2025-09-27 15:26:58 by antabord         ###   ########.fr       */
+/*                                                    +:+ +:+         +:+     */
+/*   By: antabord <antabord@student.42.fr>          #+#  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025-10-09 15:00:20 by antabord          #+#    #+#             */
+/*   Updated: 2025-10-09 15:00:20 by antabord         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 
 #include "../a_fun.h"
 #include "../a_structs.h"
@@ -22,7 +20,8 @@ void	create_map(t_map *map, char **line, int height)
 	map->grid = line;
 	map->width = ft_strlen(line[0]);
 	map->height = height;
-	if (!check_counts(line) || !top_bottom_walls(line[0], line[map->height - 1]) || !is_square(line, height))
+	if (!check_counts(line) || !top_bottom_walls(line[0], line[map->height - 1])
+		|| !is_square(line, height))
 	{
 		ft_free_all(line);
 		return ;
@@ -54,24 +53,24 @@ int	coin_count(t_map *map)
 	map->coins_map = coins;
 	if (coins != map->coins_found)
 	{
-		ft_puterr("Invalid coin placement\n");
+		ft_puterr("Invalid coin or enemy placement\n");
 		return (0);
 	}
 	return (1);
 }
 
-int count_c(char *str)
+int	count_c(char *str)
 {
-    int i;
-    int p;
+	int i;
+	int p;
 
-    i = 0;
-    p = 0;
-    while (str[i])
-    {
-        if (str[i] == 'C')
-            p++;
-        i++;
-    }
-    return (p);
+	i = 0;
+	p = 0;
+	while (str[i])
+	{
+		if (str[i] == 'C')
+			p++;
+		i++;
+	}
+	return (p);
 }
