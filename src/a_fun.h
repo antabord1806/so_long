@@ -33,7 +33,7 @@ void	free_player(t_game *game);
 // map
 // parsing
 void	main_parser(t_map *map, int argc, char **argv);
-void	second_main_parser(t_map *map, char *line);
+void	second_main_parser(t_map *map);
 char	*read_block(int fd);
 char	*line_reader(int fd);
 char	**line_check(char *str);
@@ -49,7 +49,7 @@ int	is_square(char **lines, int n_lines);
 int	top_bottom_walls(char *st_line, char *lst_line);
 int	e_p_finder(char **lines, int max_y, int max_x);
 void	flood_fill_st(t_map *map, int x, int y, int height);
-void	flood_filled(char **copy, int x, int y, t_map *map);
+void	flood_filled(char **copy, int x, int y, int *coins);
 int	coin_count(t_map *map);
 void	print_map(char **grid, int height);
 void	validate_map_size(t_map *map);
@@ -62,13 +62,14 @@ t_player	*player_init(void);
 void	find_p_x(t_map *map);
 void	find_p_y(t_map *map);
 
-//load imgs
+// load imgs
 void	load_images(void *mlx, t_map *map, t_player *player);
-void	load_img_animation_player(void *mlx, t_player *player, int	x, int y);
-void	load_img_animation_player_on_coin(void *mlx, t_player *player, int x, int y);
+void	load_img_animation_player(void *mlx, t_player *player, int x, int y);
+void	load_img_animation_player_on_coin(void *mlx, t_player *player, int x,
+		int y);
 void	load_img_animation_exit(void *mlx, t_player *player, int x, int y);
-void	load_img_player_on_void_coin(void *mlx, t_player *player, int x, int y);
-
+void	load_img_player_on_void_coin(void *mlx, t_player *player, int x,
+		int y);
 
 // render
 void	map_render(t_game *game);
@@ -89,7 +90,9 @@ int	move_check(t_game *game, int new_y, int new_x);
 char	restore_tile(char tile);
 void	coin_collected_check(t_game *game);
 void	update_coins(t_game *game);
-void	move_player(t_game *game, int new_y, int new_x);
+void	move_player(t_game *game, char new_tile, int new_y, int new_x);
+void	move_player_old(t_game *game, int new_y, int new_x);
+void	move_player_2(t_game *game, char new_tile, int new_y, int new_x);
 int	destroy_win(t_game *game);
 int	minimizer(void);
 int	maximizer(void);

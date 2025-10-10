@@ -34,9 +34,7 @@ int	coin_count(t_map *map)
 {
 	int x;
 	int y;
-	int coins;
 
-	coins = 0;
 	x = 0;
 	y = 0;
 	while (y < map->height)
@@ -44,16 +42,15 @@ int	coin_count(t_map *map)
 		while (x < map->width)
 		{
 			if (map->grid[y][x] == 'C')
-				coins++;
+				map->coins_map++;
 			x++;
 		}
 		x = 0;
 		y++;
 	}
-	map->coins_map = coins;
-	if (coins != map->coins_found)
+	if (map->coins_map != map->coins_found)
 	{
-		ft_puterr("Invalid coin or enemy placement\n");
+		ft_puterr_non_exit("Invalid coin or enemy placement\n");
 		return (0);
 	}
 	return (1);

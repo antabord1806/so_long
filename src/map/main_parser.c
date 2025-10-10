@@ -40,19 +40,20 @@ void	main_parser(t_map *map, int argc, char **argv)
 	if (!map)
 	{
 		free(line);
-		return ;
+		exit(1);
 	}
+	free(line);
+	second_main_parser(map);
 }
 
-void	second_main_parser(t_map *map, char *line)
+void	second_main_parser(t_map *map)
 {
 	flood_fill_st(map, map->player_x, map->player_y, map->height);
 	if (!coin_count(map))
 	{
-		free(line);
-		return ;
+		ft_free_all(map->grid);
+		exit(1); ;
 	}
-	free(line);
 }
 
 int	n_lines(char **grid)

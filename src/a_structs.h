@@ -33,10 +33,7 @@ typedef struct s_map
 	void *player;
 	void *wall;
 	void *coins;
-	void *player_on_coin;
-	void *player_on_void;
 	void *void_coin;
-	void *player_on_exit;
 	void *ground;
 	void *exit;
 } t_map;

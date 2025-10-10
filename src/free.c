@@ -2,14 +2,16 @@
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   free.c                                             :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: antabord <antabord@student.42.fr>          #+#  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
+/*                                                    +:+ +:+        
+	+:+     */
+/*   By: antabord <antabord@student.42.fr>          #+#  +:+      
+	+#+        */
+/*                                                +#+#+#+#+#+  
+	+#+           */
 /*   Created: 2025-10-09 15:00:48 by antabord          #+#    #+#             */
 /*   Updated: 2025-10-09 15:00:48 by antabord         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 #include "a_fun.h"
 #include "a_structs.h"
@@ -27,6 +29,7 @@ void	ft_free_all(char **arr_aloc)
 	}
 	free(arr_aloc);
 }
+
 void	free_player(t_game *game)
 {
 	int i;

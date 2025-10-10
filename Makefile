@@ -22,6 +22,7 @@ SRC = \
 	$(SRC_DIR)/error.c \
 	$(SRC_DIR)/main.c \
 	$(SRC_DIR)/innit.c \
+	$(SRC_DIR)/load_img.c \
 	$(SRC_DIR)/render_map.c \
 	$(SRC_DIR)/move_check.c \
 	$(SRC_DIR)/map/map_parsing.c \

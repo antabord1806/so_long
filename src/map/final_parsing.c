@@ -50,7 +50,7 @@ void	flood_fill_st(t_map *map, int x, int y, int height)
 		i++;
 	}
 	copy[i] = NULL;
-	flood_filled(copy, x, y, map->coins_found);
+	flood_filled(copy, x, y, &map->coins_found);
 	ft_free_all(copy);
 }
 
@@ -62,7 +62,7 @@ void	flood_filled(char **copy, int x, int y, int *coins)
 		return ;
 	if (copy[y][x] == 'C')
 		(*coins)++;
-	
+	printf("coins_found: %d\n", *coins);
 	copy[y][x] = 'V';
 	flood_filled(copy, x + 1, y, coins);
 	flood_filled(copy, x - 1, y, coins);

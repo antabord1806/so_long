@@ -2,11 +2,11 @@
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   map_check.c                                        :+:      :+:    :+:   */
-/*                                                    +:+ +:+        
+/*                                                    +:+ +:+
 	+:+     */
-/*   By: antabord <antabord@student.42.fr>          #+#  +:+      
+/*   By: antabord <antabord@student.42.fr>          #+#  +:+
 	+#+        */
-/*                                                +#+#+#+#+#+  
+/*                                                +#+#+#+#+#+
 	+#+           */
 /*   Created: 2025-09-27 15:26:45 by antabord          #+#    #+#             */
 /*   Updated: 2025-09-27 15:26:45 by antabord         ###   ########.fr       */
