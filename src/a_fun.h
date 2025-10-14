@@ -55,7 +55,7 @@ void	print_map(char **grid, int height);
 void	validate_map_size(t_map *map);
 
 // to_struct
-void	create_map(t_map *map, char **lines, int n_lines);
+int	create_map(t_map *map, char **lines, int n_lines);
 void	init_grid(t_map *map);
 t_game	*game_init(t_map *map, t_player *player);
 t_player	*player_init(void);

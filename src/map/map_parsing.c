@@ -49,7 +49,7 @@ int	validate_chars(char *s)
 	{
 		if (!char_finder(s[i]))
 		{
-			ft_puterr("Error: Invalid character [");
+			ft_puterr_non_exit("Error: Invalid character\n");
 			write(2, &s[i], 1);
 			write(2, "]\n", 2);
 			return (0);
@@ -98,9 +98,9 @@ char	*line_reader(int fd)
 		{
 			old = tmp;
 			tmp = ft_strjoin(tmp, block);
-			free(old);
 			if (!tmp)
 				return (free(block), NULL);
+			free(old);
 		}
 		free(block);
 	}

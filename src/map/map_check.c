@@ -47,7 +47,7 @@ int	is_square(char **lines, int n_lines)
 	{
 		if (ft_strlen(lines[i]) != len)
 		{
-			ft_puterr("Error: The map is not rectangular\n");
+			ft_puterr_non_exit("Error: The map is not rectangular\n");
 			return (0);
 		}
 		i++;
@@ -107,12 +107,12 @@ int	check_counts(char **lines)
 	}
 	if (c < 1)
 	{
-		ft_puterr("Error: No coins!\n");
+		ft_puterr_non_exit("Error: No coins!\n");
 		return (0);
 	}
 	if (e != 1 || p != 1)
 	{
-		ft_puterr("Error: Invalid spawn or exit\n");
+		ft_puterr_non_exit("Error: Invalid spawn or exit\n");
 		return (0);
 	}
 	return (1);

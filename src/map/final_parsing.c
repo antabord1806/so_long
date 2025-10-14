@@ -22,7 +22,7 @@ int	top_bottom_walls(char *st_line, char *lst_line)
 	{
 		if (st_line[i] != '1' || lst_line[i] != '1')
 		{
-			ft_puterr("Error: Map walls invalid\n");
+			ft_puterr_non_exit("Error: Map walls invalid\n");
 			return (0);
 		}
 		i++;
@@ -62,7 +62,6 @@ void	flood_filled(char **copy, int x, int y, int *coins)
 		return ;
 	if (copy[y][x] == 'C')
 		(*coins)++;
-	printf("coins_found: %d\n", *coins);
 	copy[y][x] = 'V';
 	flood_filled(copy, x + 1, y, coins);
 	flood_filled(copy, x - 1, y, coins);

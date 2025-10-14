@@ -33,11 +33,10 @@ void	main_parser(t_map *map, int argc, char **argv)
 	line = line_reader(fd);
 	close(fd);
 	if (!line)
-		return ;
+		return (free(line), exit(1));
 	map->grid = line_check(line);
 	fd = n_lines(map->grid);
-	create_map(map, map->grid, fd);
-	if (!map)
+	if (!map || !create_map(map, map->grid, fd))
 	{
 		free(line);
 		exit(1);
