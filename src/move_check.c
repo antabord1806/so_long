@@ -47,8 +47,7 @@ void	move_player(t_game *game, char new_tile, int new_y, int new_x)
 			game->map.grid[new_y][new_x] = 'D';
 		}
 	}
-	else
-		move_player_2(game, new_tile, new_y, new_x);
+	move_player_2(game, new_tile, new_y, new_x);
 }
 
 void	move_player_2(t_game *game, char new_tile, int new_y, int new_x)
@@ -65,7 +64,7 @@ void	move_player_2(t_game *game, char new_tile, int new_y, int new_x)
 		game->player.moves++;
 		game->map.grid[new_y][new_x] = 'S';
 	}
-	else
+	else if (new_tile == '0')
 	{
 		game->player.moves++;
 		game->map.grid[new_y][new_x] = 'P';

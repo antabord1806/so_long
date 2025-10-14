@@ -50,8 +50,6 @@ void		map_rendering(t_game *game, int y, int x)
 		img_draw = void_drawing(game, y, x);
 	else if (game->map.grid[y][x] == 'D')
 		img_draw = exit_drawing(game, y, x);
-	else if (game->map.grid[y][x] == 'S')
-		img_draw = game->player.player_on_void[0];
 	else if (game->map.grid[y][x] == 'V')
 		img_draw = game->map.void_coin;
 	else if (game->map.grid[y][x] == 'M')
