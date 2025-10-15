@@ -112,4 +112,3 @@ void	load_img_player_on_void_coin(void *mlx, t_player *player, int x, int y)
 	player->player_on_void[7] = mlx_xpm_file_to_image(mlx,
 			"assets/raw/xpm4/pl_on_voidcoin8.xpm", &x, &y);
 }
-

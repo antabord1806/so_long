@@ -2,11 +2,11 @@
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   free.c                                             :+:      :+:    :+:   */
-/*                                                    +:+ +:+        
+/*                                                    +:+ +:+
 	+:+     */
-/*   By: antabord <antabord@student.42.fr>          #+#  +:+      
+/*   By: antabord <antabord@student.42.fr>          #+#  +:+
 	+#+        */
-/*                                                +#+#+#+#+#+  
+/*                                                +#+#+#+#+#+
 	+#+           */
 /*   Created: 2025-10-09 15:00:48 by antabord          #+#    #+#             */
 /*   Updated: 2025-10-09 15:00:48 by antabord         ###   ########.fr       */

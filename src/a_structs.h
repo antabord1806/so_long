@@ -27,6 +27,7 @@ typedef struct s_map
 	int height;
 	int coins_map;
 	int coins_found;
+	int exit_nbr;
 	int player_x;
 	int player_y;
 	void *enemy;

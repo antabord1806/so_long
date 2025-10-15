@@ -35,12 +35,11 @@ void	main_parser(t_map *map, int argc, char **argv)
 	if (!line)
 		return (free(line), exit(1));
 	map->grid = line_check(line);
+	if (!map || !map->grid)
+		return (free(line), exit(1));
 	fd = n_lines(map->grid);
-	if (!map || !create_map(map, map->grid, fd))
-	{
-		free(line);
-		exit(1);
-	}
+	if (!create_map(map, map->grid, fd))
+		return (free(line), exit(1));
 	free(line);
 	second_main_parser(map);
 }
@@ -51,7 +50,7 @@ void	second_main_parser(t_map *map)
 	if (!coin_count(map))
 	{
 		ft_free_all(map->grid);
-		exit(1); ;
+		exit(1);
 	}
 }
 

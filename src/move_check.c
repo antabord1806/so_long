@@ -62,7 +62,7 @@ void	move_player_2(t_game *game, char new_tile, int new_y, int new_x)
 	else if (new_tile == 'V')
 	{
 		game->player.moves++;
-		game->map.grid[new_y][new_x] = 'S';
+		game->map.grid[new_y][new_x] = 'A';
 	}
 	else if (new_tile == '0')
 	{

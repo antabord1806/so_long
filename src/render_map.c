@@ -15,8 +15,8 @@
 
 void	map_render(t_game *game)
 {
-	int x;
-	int y;
+	int	x;
+	int	y;
 
 	x = 0;
 	y = 0;
@@ -32,9 +32,9 @@ void	map_render(t_game *game)
 	}
 }
 
-void		map_rendering(t_game *game, int y, int x)
+void	map_rendering(t_game *game, int y, int x)
 {
-	void *img_draw;
+	void	*img_draw;
 
 	if (game->map.grid[y][x] == '0')
 		img_draw = game->map.ground;
@@ -56,13 +56,15 @@ void		map_rendering(t_game *game, int y, int x)
 		return ;
 	else
 		img_draw = game->map.wall;
-	mlx_put_image_to_window(game->mlx, game->win, img_draw, TILE_SIZE * x, TILE_SIZE * y);
+	mlx_put_image_to_window(game->mlx, game->win, img_draw, TILE_SIZE * x,
+		TILE_SIZE * y);
 }
 
 void	*player_drawing(t_game *game, int y, int x)
 {
-	void *img;
-	img= game->player.player[game->player.frames_player];
+	void	*img;
+
+	img = game->player.player[game->player.frames_player];
 	game->map.player_x = x;
 	game->map.player_y = y;
 	return (img);
@@ -70,8 +72,9 @@ void	*player_drawing(t_game *game, int y, int x)
 
 void	*void_drawing(t_game *game, int y, int x)
 {
-	void *img;
-	img= game->player.player_on_void[game->player.frames_on_void];
+	void	*img;
+
+	img = game->player.player_on_void[game->player.frames_on_void];
 	game->map.player_x = x;
 	game->map.player_y = y;
 	return (img);
@@ -79,8 +82,9 @@ void	*void_drawing(t_game *game, int y, int x)
 
 void	*exit_drawing(t_game *game, int y, int x)
 {
-	void *img;
-	img= game->player.player_on_exit[game->player.frames_on_exit];
+	void	*img;
+
+	img = game->player.player_on_exit[game->player.frames_on_exit];
 	game->map.player_x = x;
 	game->map.player_y = y;
 	return (img);

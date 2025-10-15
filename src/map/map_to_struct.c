@@ -2,14 +2,16 @@
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   map_to_struct.c                                    :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: antabord <antabord@student.42.fr>          #+#  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
+/*                                                    +:+ +:+        
+	+:+     */
+/*   By: antabord <antabord@student.42.fr>          #+#  +:+      
+	+#+        */
+/*                                                +#+#+#+#+#+  
+	+#+           */
 /*   Created: 2025-10-09 15:00:20 by antabord          #+#    #+#             */
 /*   Updated: 2025-10-09 15:00:20 by antabord         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 #include "../a_fun.h"
 #include "../a_structs.h"
@@ -54,7 +56,13 @@ int	coin_count(t_map *map)
 		ft_puterr_non_exit("Invalid coin or enemy placement\n");
 		return (0);
 	}
-	return (1);
+	else if (map->exit_nbr != 1)
+	{
+		ft_puterr_non_exit("Invalid exit placement\n");
+		return (0);
+	}
+	else
+		return (1);
 }
 
 int	count_c(char *str)

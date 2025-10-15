@@ -50,21 +50,24 @@ void	flood_fill_st(t_map *map, int x, int y, int height)
 		i++;
 	}
 	copy[i] = NULL;
-	flood_filled(copy, x, y, &map->coins_found);
+	flood_filled(copy, x, y, map);
 	ft_free_all(copy);
 }
 
-void	flood_filled(char **copy, int x, int y, int *coins)
+void	flood_filled(char **copy, int x, int y, t_map *map)
 {
 	if (y < 0 || x < 0 || !copy[y] || x >= ft_strlen(copy[y]))
 		return ;
 	if (copy[y][x] == '1' || copy[y][x] == 'V' || copy[y][x] == 'M')
 		return ;
 	if (copy[y][x] == 'C')
-		(*coins)++;
+		map->coins_found++;
+	if (copy[y][x] == 'E')
+		map->exit_nbr++;
 	copy[y][x] = 'V';
-	flood_filled(copy, x + 1, y, coins);
-	flood_filled(copy, x - 1, y, coins);
-	flood_filled(copy, x, y + 1, coins);
-	flood_filled(copy, x, y - 1, coins);
+	flood_filled(copy, x + 1, y, map);
+	flood_filled(copy, x - 1, y, map);
+	flood_filled(copy, x, y + 1, map);
+	flood_filled(copy, x, y - 1, map);
 }
+

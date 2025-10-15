@@ -28,7 +28,7 @@ int	check_walls(char *line)
 		len--;
 	if (line[0] != '1' || line[len - 1] != '1')
 	{
-		ft_puterr("Error: Map walls invalid\n");
+		ft_puterr_non_exit("Error: Map walls invalid\n");
 		return (0);
 	}
 	return (1);
