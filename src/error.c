@@ -2,24 +2,20 @@
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   error.c                                            :+:      :+:    :+:   */
-/*                                                    +:+ +:+        
-	+:+     */
-/*   By: antabord <antabord@student.42.fr>          #+#  +:+      
-	+#+        */
-/*                                                +#+#+#+#+#+  
-	+#+           */
-/*   Created: 2025-10-09 15:00:39 by antabord          #+#    #+#             */
-/*   Updated: 2025-10-09 15:00:39 by antabord         ###   ########.fr       */
+/*                                                    +:+ +:+         +:+     */
+/*   By: antabord <antabord@student.42.fr>          #+#  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025-10-16 15:43:42 by antabord          #+#    #+#             */
+/*   Updated: 2025-10-16 15:43:42 by antabord         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "a_fun.h"
 #include "a_structs.h"
 
-
 void	ft_puterr(char *s)
 {
-	int i;
+	int	i;
 
 	if (!s)
 		return ;
@@ -34,7 +30,7 @@ void	ft_puterr(char *s)
 
 void	ft_puterr_non_exit(char *s)
 {
-	int i;
+	int		i;
 
 	if (!s)
 		return ;

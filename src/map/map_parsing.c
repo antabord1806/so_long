@@ -2,20 +2,16 @@
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   map_parsing.c                                      :+:      :+:    :+:   */
-/*                                                    +:+ +:+
-	+:+     */
-/*   By: antabord <antabord@student.42.fr>          #+#  +:+
-	+#+        */
-/*                                                +#+#+#+#+#+
-	+#+           */
-/*   Created: 2025-09-27 15:26:53 by antabord          #+#    #+#             */
-/*   Updated: 2025-09-27 15:26:53 by antabord         ###   ########.fr       */
+/*                                                    +:+ +:+         +:+     */
+/*   By: antabord <antabord@student.42.fr>          #+#  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025-10-16 15:56:04 by antabord          #+#    #+#             */
+/*   Updated: 2025-10-16 15:56:04 by antabord         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../a_fun.h"
 #include "../a_structs.h"
-
 
 int	char_finder(char c)
 {
@@ -27,8 +23,8 @@ int	char_finder(char c)
 
 char	*read_block(int fd)
 {
-	char buffer[1024 + 1];
-	ssize_t bytes_read;
+	char		buffer[1024 + 1];
+	ssize_t		bytes_read;
 
 	bytes_read = read(fd, buffer, 1024);
 	if (bytes_read <= 0)
@@ -42,7 +38,7 @@ char	*read_block(int fd)
 
 int	validate_chars(char *s)
 {
-	ssize_t i;
+	ssize_t		i;
 
 	i = 0;
 	while (s[i])
@@ -61,9 +57,9 @@ int	validate_chars(char *s)
 
 char	**line_check(char *str)
 {
-	char **lines;
-	int i;
-	int len;
+	char	**lines;
+	int		i;
+	int		len;
 
 	i = 0;
 	lines = ft_split(str, '\n');
@@ -83,12 +79,13 @@ char	**line_check(char *str)
 
 char	*line_reader(int fd)
 {
-	char *tmp;
-	char *block;
-	char *old;
+	char	*tmp;
+	char	*block;
+	char	*old;
 
 	tmp = NULL;
-	if ((block = read_block(fd)))
+	block = read_block(fd);
+	if (block)
 	{
 		if (!validate_chars(block))
 			return (free(block), free(tmp), NULL);

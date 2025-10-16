@@ -15,7 +15,7 @@
 
 int	top_bottom_walls(char *st_line, char *lst_line)
 {
-	int	i;
+	int		i;
 
 	i = 0;
 	while (st_line[i] && lst_line[i])
@@ -70,4 +70,3 @@ void	flood_filled(char **copy, int x, int y, t_map *map)
 	flood_filled(copy, x, y + 1, map);
 	flood_filled(copy, x, y - 1, map);
 }
-

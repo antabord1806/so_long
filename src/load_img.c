@@ -15,8 +15,8 @@
 
 void	load_images(void *mlx, t_map *map, t_player *player)
 {
-	int	x;
-	int	y;
+	int		x;
+	int		y;
 
 	x = TILE_SIZE;
 	y = TILE_SIZE;
@@ -50,6 +50,7 @@ void	load_img_animation_player(void *mlx, t_player *player, int x, int y)
 			"assets/raw/xpm/xpm the second/idle8.xpm", &x, &y);
 	load_img_animation_player_on_coin(mlx, player, x, y);
 }
+
 void	load_img_animation_player_on_coin(void *mlx, t_player *player, int x,
 		int y)
 {

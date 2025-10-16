@@ -1,6 +1,17 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   animations.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: antabord <antabord@student.42.fr>          #+#  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025-10-16 16:20:15 by antabord          #+#    #+#             */
+/*   Updated: 2025-10-16 16:20:15 by antabord         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "a_fun.h"
 #include "a_structs.h"
-
 
 int	game_loop(t_game *game)
 {
@@ -14,7 +25,7 @@ int	game_loop(t_game *game)
 
 int	player_animation(t_game *game)
 {
-	static int counter = 0;
+	static int	counter = 0;
 
 	counter++;
 	if (counter >= 100)
@@ -30,7 +41,7 @@ int	player_animation(t_game *game)
 
 int	void_animation(t_game *game)
 {
-	static int counter = 0;
+	static int	counter = 0;
 
 	counter++;
 	if (counter >= 100)
@@ -46,7 +57,7 @@ int	void_animation(t_game *game)
 
 int	exit_animation(t_game *game)
 {
-	static int counter = 0;
+	static int	counter = 0;
 
 	counter++;
 	if (counter >= 100)

@@ -2,24 +2,20 @@
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   map_check.c                                        :+:      :+:    :+:   */
-/*                                                    +:+ +:+
-	+:+     */
-/*   By: antabord <antabord@student.42.fr>          #+#  +:+
-	+#+        */
-/*                                                +#+#+#+#+#+
-	+#+           */
-/*   Created: 2025-09-27 15:26:45 by antabord          #+#    #+#             */
-/*   Updated: 2025-09-27 15:26:45 by antabord         ###   ########.fr       */
+/*                                                    +:+ +:+         +:+     */
+/*   By: antabord <antabord@student.42.fr>          #+#  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025-10-16 17:27:31 by antabord          #+#    #+#             */
+/*   Updated: 2025-10-16 17:27:31 by antabord         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../a_fun.h"
 #include "../a_structs.h"
 
-
 int	check_walls(char *line)
 {
-	size_t len;
+	size_t		len;
 
 	len = ft_strlen(line);
 	if (len == 0)
@@ -36,8 +32,8 @@ int	check_walls(char *line)
 
 int	is_square(char **lines, int n_lines)
 {
-	int i;
-	int len;
+	int		i;
+	int		len;
 
 	if (!lines || n_lines <= 0)
 		return (0);
@@ -57,8 +53,8 @@ int	is_square(char **lines, int n_lines)
 
 int	count_e(char *str)
 {
-	int i;
-	int e;
+	int		i;
+	int		e;
 
 	i = 0;
 	e = 0;
@@ -73,8 +69,8 @@ int	count_e(char *str)
 
 int	count_p(char *str)
 {
-	int i;
-	int p;
+	int		i;
+	int		p;
 
 	i = 0;
 	p = 0;
@@ -89,10 +85,10 @@ int	count_p(char *str)
 
 int	check_counts(char **lines)
 {
-	int i;
-	int e;
-	int p;
-	int c;
+	int		i;
+	int		e;
+	int		p;
+	int		c;
 
 	i = 0;
 	e = 0;
@@ -106,14 +102,8 @@ int	check_counts(char **lines)
 		i++;
 	}
 	if (c < 1)
-	{
-		ft_puterr_non_exit("Error: No coins!\n");
-		return (0);
-	}
+		return (ft_puterr_non_exit("Error: No coins!\n"), 0);
 	if (e != 1 || p != 1)
-	{
-		ft_puterr_non_exit("Error: Invalid spawn or exit\n");
-		return (0);
-	}
+		return (ft_puterr_non_exit("Error: Invalid spawn or exit\n"), 0);
 	return (1);
 }

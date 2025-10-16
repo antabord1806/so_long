@@ -2,20 +2,16 @@
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   key_handler.c                                      :+:      :+:    :+:   */
-/*                                                    +:+ +:+        
-	+:+     */
-/*   By: antabord <antabord@student.42.fr>          #+#  +:+      
-	+#+        */
-/*                                                +#+#+#+#+#+  
-	+#+           */
-/*   Created: 2025-10-09 15:02:34 by antabord          #+#    #+#             */
-/*   Updated: 2025-10-09 15:02:34 by antabord         ###   ########.fr       */
+/*                                                    +:+ +:+         +:+     */
+/*   By: antabord <antabord@student.42.fr>          #+#  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025-10-16 15:44:05 by antabord          #+#    #+#             */
+/*   Updated: 2025-10-16 15:44:05 by antabord         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "a_fun.h"
 #include "a_structs.h"
-
 
 int	handle_keypress(int key, t_game *game)
 {

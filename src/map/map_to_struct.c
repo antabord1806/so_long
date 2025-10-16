@@ -2,20 +2,16 @@
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   map_to_struct.c                                    :+:      :+:    :+:   */
-/*                                                    +:+ +:+        
-	+:+     */
-/*   By: antabord <antabord@student.42.fr>          #+#  +:+      
-	+#+        */
-/*                                                +#+#+#+#+#+  
-	+#+           */
-/*   Created: 2025-10-09 15:00:20 by antabord          #+#    #+#             */
-/*   Updated: 2025-10-09 15:00:20 by antabord         ###   ########.fr       */
+/*                                                    +:+ +:+         +:+     */
+/*   By: antabord <antabord@student.42.fr>          #+#  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025-10-16 17:27:46 by antabord          #+#    #+#             */
+/*   Updated: 2025-10-16 17:27:46 by antabord         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../a_fun.h"
 #include "../a_structs.h"
-
 
 int	create_map(t_map *map, char **line, int height)
 {
@@ -35,8 +31,8 @@ int	create_map(t_map *map, char **line, int height)
 
 int	coin_count(t_map *map)
 {
-	int x;
-	int y;
+	int		x;
+	int		y;
 
 	x = 0;
 	y = 0;
@@ -52,23 +48,17 @@ int	coin_count(t_map *map)
 		y++;
 	}
 	if (map->coins_map != map->coins_found)
-	{
-		ft_puterr_non_exit("Invalid coin or enemy placement\n");
-		return (0);
-	}
+		return (ft_puterr_non_exit("Invalid coin or enemy placement\n"), 0);
 	else if (map->exit_nbr != 1)
-	{
-		ft_puterr_non_exit("Invalid exit placement\n");
-		return (0);
-	}
+		return (ft_puterr_non_exit("Invalid exit placement\n"), 0);
 	else
 		return (1);
 }
 
 int	count_c(char *str)
 {
-	int i;
-	int p;
+	int		i;
+	int		p;
 
 	i = 0;
 	p = 0;

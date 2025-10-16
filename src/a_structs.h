@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   a_structs.h                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: antabord <antabord@student.42.fr>          #+#  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025-10-16 17:27:58 by antabord          #+#    #+#             */
+/*   Updated: 2025-10-16 17:27:58 by antabord         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef A_STRUCTS_H
 # define A_STRUCTS_H
 
@@ -22,43 +34,43 @@
 // assets
 typedef struct s_map
 {
-	char **grid;
-	int width;
-	int height;
-	int coins_map;
-	int coins_found;
-	int exit_nbr;
-	int player_x;
-	int player_y;
-	void *enemy;
-	void *player;
-	void *wall;
-	void *coins;
-	void *void_coin;
-	void *ground;
-	void *exit;
-} t_map;
+	char		**grid;
+	int			width;
+	int			height;
+	int			coins_map;
+	int			coins_found;
+	int			exit_nbr;
+	int			player_x;
+	int			player_y;
+	void		*enemy;
+	void		*player;
+	void		*wall;
+	void		*coins;
+	void		*void_coin;
+	void		*ground;
+	void		*exit;
+}				t_map;
 
 typedef struct s_player
 {
-	int moves;
-	int frames_player;
-	void *player[8];
-	int frames_on_coin;
-	void *player_on_coin[8];
-	int frames_on_exit;
-	void *player_on_exit[8];
-	int frames_on_void;
-	void *player_on_void[8];
-	void *walking;
-} t_player;
+	int			moves;
+	int			frames_player;
+	void		*player[8];
+	int			frames_on_coin;
+	void		*player_on_coin[8];
+	int			frames_on_exit;
+	void		*player_on_exit[8];
+	int			frames_on_void;
+	void		*player_on_void[8];
+	void		*walking;
+}				t_player;
 
 typedef struct s_game
 {
-	void *win;
-	void *mlx;
-	t_player player;
-	t_map map;
-} t_game;
+	void		*win;
+	void		*mlx;
+	t_player	player;
+	t_map		map;
+}				t_game;
 
 #endif

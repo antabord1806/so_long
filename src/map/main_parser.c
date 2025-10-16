@@ -2,25 +2,21 @@
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   main_parser.c                                      :+:      :+:    :+:   */
-/*                                                    +:+ +:+
-	+:+     */
-/*   By: antabord <antabord@student.42.fr>          #+#  +:+
-	+#+        */
-/*                                                +#+#+#+#+#+
-	+#+           */
-/*   Created: 2025-09-27 15:26:37 by antabord          #+#    #+#             */
-/*   Updated: 2025-09-27 15:26:37 by antabord         ###   ########.fr       */
+/*                                                    +:+ +:+         +:+     */
+/*   By: antabord <antabord@student.42.fr>          #+#  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025-10-16 15:46:43 by antabord          #+#    #+#             */
+/*   Updated: 2025-10-16 15:46:43 by antabord         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../a_fun.h"
 #include "../a_structs.h"
 
-
 void	main_parser(t_map *map, int argc, char **argv)
 {
-	int fd;
-	char *line;
+	int		fd;
+	char	*line;
 
 	if (argc != 2)
 		ft_puterr("Error: too many arguments!\n");
@@ -56,7 +52,7 @@ void	second_main_parser(t_map *map)
 
 int	n_lines(char **grid)
 {
-	int i;
+	int		i;
 
 	i = 0;
 	while (grid[i])

@@ -2,20 +2,16 @@
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   innit.c                                            :+:      :+:    :+:   */
-/*                                                    +:+ +:+        
-	+:+     */
-/*   By: antabord <antabord@student.42.fr>          #+#  +:+      
-	+#+        */
-/*                                                +#+#+#+#+#+  
-	+#+           */
-/*   Created: 2025-10-09 15:00:56 by antabord          #+#    #+#             */
-/*   Updated: 2025-10-09 15:00:56 by antabord         ###   ########.fr       */
+/*                                                    +:+ +:+         +:+     */
+/*   By: antabord <antabord@student.42.fr>          #+#  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025-10-16 15:44:16 by antabord          #+#    #+#             */
+/*   Updated: 2025-10-16 15:44:16 by antabord         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "a_fun.h"
 #include "a_structs.h"
-
 
 void	init_grid(t_map *map)
 {
@@ -26,8 +22,8 @@ void	init_grid(t_map *map)
 
 void	find_p_x(t_map *map)
 {
-	int x;
-	int y;
+	int	x;
+	int	y;
 
 	x = 0;
 	y = 0;
@@ -48,8 +44,8 @@ void	find_p_x(t_map *map)
 
 void	find_p_y(t_map *map)
 {
-	int x;
-	int y;
+	int		x;
+	int		y;
 
 	x = 0;
 	y = 0;
