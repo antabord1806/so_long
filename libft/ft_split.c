@@ -35,7 +35,6 @@ static size_t	ft_count_words(char const *s, char c)
 	i = 0;
 	if (!s)
 		return (0);
-
 	while (*s)
 	{
 		while (*s == c)
@@ -50,8 +49,8 @@ static size_t	ft_count_words(char const *s, char c)
 
 static int	ft_str_fill(char **arr_aloc, char const *s, char c)
 {
-	size_t len;
-	int i;
+	size_t		len;
+	int			i;
 
 	i = 0;
 	while (*s)
@@ -78,8 +77,8 @@ static int	ft_str_fill(char **arr_aloc, char const *s, char c)
 
 char	**ft_split(char const *s, char c)
 {
-	size_t nwords;
-	char **arr_aloc;
+	size_t		nwords;
+	char		**arr_aloc;
 
 	if (!s)
 		return (NULL);

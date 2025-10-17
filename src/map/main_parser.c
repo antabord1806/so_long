@@ -16,6 +16,7 @@
 void	main_parser(t_map *map, int argc, char **argv)
 {
 	int		fd;
+	int		height;
 	char	*line;
 
 	if (argc != 2)
@@ -33,8 +34,8 @@ void	main_parser(t_map *map, int argc, char **argv)
 	map->grid = line_check(line);
 	if (!map || !map->grid)
 		return (free(line), exit(1));
-	fd = n_lines(map->grid);
-	if (!create_map(map, map->grid, fd))
+	height = n_lines(map->grid);
+	if (!create_map(map, map->grid, height))
 		return (free(line), exit(1));
 	free(line);
 	second_main_parser(map);

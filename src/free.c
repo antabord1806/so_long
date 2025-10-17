@@ -62,6 +62,8 @@ void	nuke_all(t_game *game)
 		mlx_destroy_image(game->mlx, game->map.exit);
 	if (game->map.void_coin)
 		mlx_destroy_image(game->mlx, game->map.void_coin);
+	if (game->map.enemy)
+		mlx_destroy_image(game->mlx, game->map.enemy);
 	if (game->map.grid)
 		ft_free_all(game->map.grid);
 	if (game->win)

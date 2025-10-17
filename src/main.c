@@ -30,7 +30,8 @@ int	main(int argc, char **argv)
 		return (1);
 	}
 	key_hooks(game.win, &game);
-	load_images(game.mlx, &game.map, &game.player);
+	if (!load_images(game.mlx, &game))
+		return (ft_puterr_non_exit("Error: Invalid assets\n"), nuke_all(&game), 1);
 	map_render(&game);
 	mlx_loop_hook(game.mlx, game_loop, &game);
 	mlx_loop(game.mlx);
@@ -42,12 +43,14 @@ void	validate_map_size(t_map *map)
 {
 	if (map->width > MAX_TILE_WIDTH)
 	{
-		ft_puterr("Error: Map width invalid!\n");
+		ft_puterr_non_exit("Error: Map width invalid!\n");
+		ft_free_all(map->grid);
 		exit(1);
 	}
 	if (map->height > MAX_TILE_HEIGHT)
 	{
-		ft_puterr("Error: Map height invalid!\n");
+		ft_puterr_non_exit("Error: Map height invalid!\n");
+		ft_free_all(map->grid);
 		exit(1);
 	}
 }

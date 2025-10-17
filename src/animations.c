@@ -28,12 +28,11 @@ int	player_animation(t_game *game)
 	static int	counter = 0;
 
 	counter++;
-	if (counter >= 100)
+	if (counter >= 130)
 	{
 		game->player.frames_player++;
 		if (game->player.frames_player >= 8)
 			game->player.frames_player = 0;
-		map_render(game);
 		counter = 0;
 	}
 	return (0);
@@ -44,12 +43,11 @@ int	void_animation(t_game *game)
 	static int	counter = 0;
 
 	counter++;
-	if (counter >= 100)
+	if (counter >= 130)
 	{
 		game->player.frames_on_void++;
 		if (game->player.frames_on_void >= 8)
 			game->player.frames_on_void = 0;
-		map_render(game);
 		counter = 0;
 	}
 	return (0);
@@ -60,12 +58,11 @@ int	exit_animation(t_game *game)
 	static int	counter = 0;
 
 	counter++;
-	if (counter >= 100)
+	if (counter >= 130)
 	{
 		game->player.frames_on_exit++;
 		if (game->player.frames_on_exit >= 8)
 			game->player.frames_on_exit = 0;
-		map_render(game);
 		counter = 0;
 	}
 	return (0);

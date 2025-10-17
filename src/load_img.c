@@ -13,24 +13,26 @@
 #include "a_fun.h"
 #include "a_structs.h"
 
-void	load_images(void *mlx, t_map *map, t_player *player)
+int	load_images(void *mlx, t_game *game)
 {
-	int		x;
-	int		y;
+	int	x;
+	int	y;
 
 	x = TILE_SIZE;
 	y = TILE_SIZE;
-	map->ground = mlx_xpm_file_to_image(mlx, "assets/raw/xpm/map.xpm", &x, &y);
-	map->wall = mlx_xpm_file_to_image(mlx, "assets/raw/xpm/water.xpm", &x, &y);
-	map->exit = mlx_xpm_file_to_image(mlx, "assets/raw/xpm/exit.xpm", &x, &y);
-	map->coins = mlx_xpm_file_to_image(mlx, "assets/raw/xpm/chest1.xpm", &x,
-			&y);
-	map->void_coin = mlx_xpm_file_to_image(mlx, "assets/raw/xpm/chest2.xpm", &x,
-			&y);
-	load_img_animation_player(mlx, player, x, y);
+	game->map.ground = mlx_xpm_file_to_image(mlx, "assets/raw/xpm/map.xpm", &x, &y);
+	game->map.wall = mlx_xpm_file_to_image(mlx, "assets/raw/xpm/water.xpm", &x, &y);
+	game->map.exit = mlx_xpm_file_to_image(mlx, "assets/raw/xpm/exit.xpm", &x, &y);
+	game->map.coins = mlx_xpm_file_to_image(mlx, "assets/raw/xpm/chest1.xpm", &x, &y);
+	game->map.void_coin = mlx_xpm_file_to_image(mlx, "assets/raw/xpm/chest2.xpm", &x, &y);
+	game->map.enemy = mlx_xpm_file_to_image(mlx, "assets/raw/xpm/rip_void.xpm", &x, &y);
+	if (!game->map.ground || !game->map.wall || !game->map.exit || !game->map.coins
+		|| !game->map.void_coin || !game->map.enemy)
+		return (0);
+	return (load_img_animation_player(mlx, &game->player, x, y));
 }
 
-void	load_img_animation_player(void *mlx, t_player *player, int x, int y)
+int	load_img_animation_player(void *mlx, t_player *player, int x, int y)
 {
 	player->player[0] = mlx_xpm_file_to_image(mlx,
 			"assets/raw/xpm/xpm the second/idle1.xpm", &x, &y);
@@ -48,11 +50,14 @@ void	load_img_animation_player(void *mlx, t_player *player, int x, int y)
 			"assets/raw/xpm/xpm the second/idle7.xpm", &x, &y);
 	player->player[7] = mlx_xpm_file_to_image(mlx,
 			"assets/raw/xpm/xpm the second/idle8.xpm", &x, &y);
-	load_img_animation_player_on_coin(mlx, player, x, y);
+	if (!player->player[0] || !player->player[1] || !player->player[2] || !player->player[3]
+		|| !player->player[4] || !player->player[5] || !player->player[6] || !player->player[7])
+		return (0);
+	return (load_img_animation_player_on_coin(mlx, player, x, y));
 }
 
-void	load_img_animation_player_on_coin(void *mlx, t_player *player, int x,
-		int y)
+int	load_img_animation_player_on_coin(void *mlx, t_player *player, int x,
+	int y)
 {
 	player->player_on_coin[0] = mlx_xpm_file_to_image(mlx,
 			"assets/raw/xpm2/pl+chest1.xpm", &x, &y);
@@ -70,10 +75,14 @@ void	load_img_animation_player_on_coin(void *mlx, t_player *player, int x,
 			"assets/raw/xpm2/pl+chest7.xpm", &x, &y);
 	player->player_on_coin[7] = mlx_xpm_file_to_image(mlx,
 			"assets/raw/xpm2/pl+chest8.xpm", &x, &y);
-	load_img_animation_exit(mlx, player, x, y);
+	if (!player->player_on_coin[0] || !player->player_on_coin[1] || !player->player_on_coin[2]
+		|| !player->player_on_coin[3] || !player->player_on_coin[4] || !player->player_on_coin[5]
+		|| !player->player_on_coin[6] || !player->player_on_coin[7])
+		return (0);
+	return (load_img_animation_exit(mlx, player, x, y));
 }
 
-void	load_img_animation_exit(void *mlx, t_player *player, int x, int y)
+int	load_img_animation_exit(void *mlx, t_player *player, int x, int y)
 {
 	player->player_on_exit[0] = mlx_xpm_file_to_image(mlx,
 			"assets/raw/xpm3/pl_on_exit1.xpm", &x, &y);
@@ -91,10 +100,14 @@ void	load_img_animation_exit(void *mlx, t_player *player, int x, int y)
 			"assets/raw/xpm3/pl_on_exit7.xpm", &x, &y);
 	player->player_on_exit[7] = mlx_xpm_file_to_image(mlx,
 			"assets/raw/xpm3/pl_on_exit8.xpm", &x, &y);
-	load_img_player_on_void_coin(mlx, player, x, y);
+	if (!player->player_on_exit[0] || !player->player_on_exit[1] || !player->player_on_exit[2]
+		|| !player->player_on_exit[3] || !player->player_on_exit[4] || !player->player_on_exit[5]
+		|| !player->player_on_exit[6] || !player->player_on_exit[7])
+		return (0);
+	return (load_img_player_on_void_coin(mlx, player, x, y));
 }
 
-void	load_img_player_on_void_coin(void *mlx, t_player *player, int x, int y)
+int	load_img_player_on_void_coin(void *mlx, t_player *player, int x, int y)
 {
 	player->player_on_void[0] = mlx_xpm_file_to_image(mlx,
 			"assets/raw/xpm4/pl_on_voidcoin1.xpm", &x, &y);
@@ -112,4 +125,9 @@ void	load_img_player_on_void_coin(void *mlx, t_player *player, int x, int y)
 			"assets/raw/xpm4/pl_on_voidcoin7.xpm", &x, &y);
 	player->player_on_void[7] = mlx_xpm_file_to_image(mlx,
 			"assets/raw/xpm4/pl_on_voidcoin8.xpm", &x, &y);
+	if (!player->player_on_void[0] || !player->player_on_void[1] || !player->player_on_void[2]
+		|| !player->player_on_void[3] || !player->player_on_void[4] || !player->player_on_void[5]
+		|| !player->player_on_void[6] || !player->player_on_void[7])
+		return (0);
+	return (1);
 }

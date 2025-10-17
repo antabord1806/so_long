@@ -55,7 +55,7 @@ void	move_player_2(t_game *game, char new_tile, int new_y, int new_x)
 	if (new_tile == 'M')
 	{
 		game->player.moves++;
-		ft_puterr_non_exit("you died!\n");
+		ft_puterr_non_exit("fell into the void!\n");
 		nuke_all(game);
 		exit(0);
 	}

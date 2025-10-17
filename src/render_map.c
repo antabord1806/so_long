@@ -53,7 +53,7 @@ void	map_rendering(t_game *game, int y, int x)
 	else if (game->map.grid[y][x] == 'V')
 		img_draw = game->map.void_coin;
 	else if (game->map.grid[y][x] == 'M')
-		return ;
+		img_draw = game->map.enemy;
 	else
 		img_draw = game->map.wall;
 	mlx_put_image_to_window(game->mlx, game->win, img_draw, TILE_SIZE * x,

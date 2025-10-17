@@ -35,6 +35,7 @@
 typedef struct s_map
 {
 	char		**grid;
+	int			fd;
 	int			width;
 	int			height;
 	int			coins_map;

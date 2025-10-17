@@ -76,15 +76,11 @@ void					find_p_x(t_map *map);
 void					find_p_y(t_map *map);
 
 // load imgs
-void					load_images(void *mlx, t_map *map, t_player *player);
-void					load_img_animation_player(void *mlx, t_player *player,
-							int x, int y);
-void					load_img_animation_player_on_coin(void *mlx,
-							t_player *player, int x, int y);
-void					load_img_animation_exit(void *mlx, t_player *player,
-							int x, int y);
-void					load_img_player_on_void_coin(void *mlx,
-							t_player *player, int x, int y);
+int				load_images(void *mlx, t_game *game);
+int				load_img_animation_player(void *mlx, t_player *player, int x, int y);
+int				load_img_animation_player_on_coin(void *mlx, t_player *player, int x, int y);
+int				load_img_animation_exit(void *mlx, t_player *player, int x, int y);
+int				load_img_player_on_void_coin(void *mlx, t_player *player, int x, int y);
 
 // render
 void					map_render(t_game *game);
