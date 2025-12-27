@@ -8,7 +8,7 @@ CFLAGS = -Wall -Wextra -Werror
 SRC_DIR = src
 INC_DIR = src
 LIBFT_DIR = libft
-MLX_DIR = minilibx-linux/minilibx-linux
+MLX_DIR = minilibx-linux
 
 
 INCLUDES = -I$(INC_DIR) -I$(LIBFT_DIR) -I$(MLX_DIR)

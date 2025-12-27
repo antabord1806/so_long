@@ -14,7 +14,7 @@
 # define A_FUN_H
 
 # include "../libft/libft.h"
-# include "../minilibx-linux/minilibx-linux/mlx.h"
+# include "../minilibx-linux/mlx.h"
 # include "a_structs.h"
 
 # ifndef TILE_SIZE

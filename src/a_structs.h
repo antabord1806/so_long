@@ -22,7 +22,7 @@
 # endif
 
 # include "../libft/libft.h"
-# include "../minilibx-linux/minilibx-linux/mlx.h"
+# include "../minilibx-linux/mlx.h"
 # include "a_fun.h"
 # include <fcntl.h>
 # include <stddef.h>
