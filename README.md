@@ -3,15 +3,21 @@
 ## What is this project?
 * **Goals** To create a 2D game using the graphical library miniLibx.
 
-
 ## How it works
 
 ```bash
 git@github.com:antabord1806/so_long.git so_long
 cd so_long
+make all
 ```
-you need to get the miniLibx from its repo and download it  
-## My Aproach
+```bash
+make
+```
+```bash
+./so_long map.ber
+```
+
+## Must Know
 
 The evolution of the project is directly dependent on how much one understands the graphical libary being used, that being said these are the most important concepts to understand:
 
@@ -24,5 +30,14 @@ The evolution of the project is directly dependent on how much one understands t
     - window events;
   In this project the response that the program responds to ends with changing the place of the sprite and re-rendering the map;
 
+## My Approach
 
+<p align="center">
+ <img src="git assets/fell into the void.gif" alt="graph1" width="800">
+  <figcaption><em>Game over message</em></figcaption>
+</p>
 
+<p align="center">
+   <img src="git assets/you win" alt="graph2" width="800">
+  <figcaption><em>Game completed message</em></figcaption>
+</p>
