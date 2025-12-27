@@ -32,12 +32,12 @@ The evolution of the project is directly dependent on how much one understands t
 
 ## My Approach
 
-<p align="center">
- <img src="git assets/fell int the void.gif" alt="graph1" width="800">
+<p align="left">
+ <img src="git assets/fell int the void.gif" alt="graph1" width="600">
   <figcaption><em>Game over message</em></figcaption>
 </p>
 
-<p align="center">
-   <img src="git assets/you win.gif" alt="graph2" width="800">
+<p align="left">
+   <img src="git assets/you win.gif" alt="graph2" width="600">
   <figcaption><em>Game completed message</em></figcaption>
 </p>
