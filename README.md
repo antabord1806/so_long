@@ -71,3 +71,6 @@ All conditions are validated through the map state.
    <img src="git assets/you win.gif" alt="graph2" width="600">
   <figcaption><em>Game completed message</em></figcaption>
 </p>
+
+## Conclusion
+This project allowed me to understand the fundamentals of 2D game development using MiniLibX.
