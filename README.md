@@ -31,6 +31,35 @@ The evolution of the project is directly dependent on how much one understands t
     - window events;
   In this project the response that the program responds to ends with changing the place of the sprite and re-rendering the map;
 
+## Core Concepts
+
+This project is built around a simple but strict game loop based on rendering and events.
+
+### Map Representation
+
+- The map is read from a `.ber` file and stored in a 2D array.
+- Each character in the map represents a game entity:
+  - `1` → Wall  
+  - `0` → Empty space  
+  - `P` → Player  
+  - `C` → Collectible  
+  - `E` → Exit  
+
+The map array is the **single source of truth** for the game state.  
+Every movement updates the map first, then the screen is re-rendered accordingly.
+
+### Win and Lose Conditions
+
+- The player **wins** when:
+  - All collectibles are collected
+  - The player reaches the exit
+
+- The game **ends** when:
+  - The exit is reached successfully
+  - The window is closed
+
+All conditions are validated through the map state.
+
 ## My Approach
 
 <p align="left">
