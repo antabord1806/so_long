@@ -8,6 +8,7 @@
 ```bash
 git@github.com:antabord1806/so_long.git so_long
 cd so_long
+tar -xvzf minilibx-linux.tgz
 make all
 ```
 ```bash
